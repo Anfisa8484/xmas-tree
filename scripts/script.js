@@ -75,7 +75,7 @@ let Toys=[
         count:4,
         year:2017,
         shape:"колокольчик",
-        color: ["кразолотой"],
+        color: ["золотой"],
         favorite:false
     },
 ]
@@ -99,9 +99,42 @@ let updaytToys = Toys.map(toy=>{
 });
 console.log(updaytToys);
 
-let toyStore ={
-    list: ["RedBall","BlueBall","GreenBall"];
-    getComputedStyle(index){
+let toyStore =
+{
+    list: ["RedBall","BlueBall","GreenBall"],
+    getComputedStyle(index)
+    {
         return this.list[index];
     }
 }
+
+let tree ={
+    type:"snowy",
+    backgraund:"livivn_room",
+    garland:"multin",
+    toys:[
+        {id: 1, x: 120, y: 240, type:"RedBall"},
+        {id: 2, x: 150, y: 300, type:"GreenBall"}
+    ]
+}
+
+let us = {name: "Аня", age: 16};
+
+Object.seal(us);
+us.name ="Вика";
+us.age = 17;
+delete us.name;
+console.log(us);
+
+
+// let  original ={a: 1, b: 2};
+// let copy =Object.assign({}, original);
+// copy.a =99;
+// console.log(original.a);
+
+// let  original ={a: 1, b: 2};
+// let copy = {...original}
+// copy.b =99;
+// console.log(copy.b); 
+
+
