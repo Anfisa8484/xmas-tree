@@ -6,88 +6,115 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var nums = [1, 2, 3];
-var newNums = nums.map(function (n) {
-  return n + 1;
-});
-console.log(newNums);
-var num = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-var even = num.filter(function (n) {
-  return n > 5;
-});
-console.log(even);
-var boxs = [{
-  weight: 2,
-  label: "легкая"
-}, {
-  weight: 5,
-  label: "средняя"
-}, {
-  weight: 12,
-  label: "тяжелая"
-}, {
-  weight: 15,
-  label: "оче6нь тяжелая"
-}];
-var heavyBox = boxs.find(function (box) {
-  return box.weight > 10;
-});
-console.log(heavyBox);
-var innerPlanets = ["Меркурий", "Венера", "Земля", "Марс"];
-var outerPlanets = ["Юпитер", "Сатурн", "Уран", "Нептун"];
-var planets = innerPlanets.concat(outerPlanets);
-console.log(planets);
-var words = ["Я", "люблю", "JS"];
-var sentons = words.join(" ");
-console.log(sentons);
-var toys = ["Шар", "Зыездочка", "Коокольчик"];
-var list = toys.join(", ");
-console.log(list);
-var toysList = "Шар, Зыездочка, Коокольчик";
-var toyss = toysList.split(", ");
-console.log(toyss);
-var toyys = ["Шар", "Зыездочка", "Коокольчик"];
-toyys.forEach(function (toy, i) {
-  console.log(i, toy);
-});
+// let nums=[1,2,3];
+// let newNums =nums.map(n=>n+1);
+// console.log(newNums);
+// let num=[1,2,3,4,5,6,7,8,9];
+// let even =num.filter(n=>n>5);
+// console.log(even);
+// let boxs=[
+//     {weight: 2, label:"легкая"},
+//     {weight: 5, label:"средняя"},
+//     {weight: 12, label:"тяжелая"}, 
+//     {weight: 15, label:"оче6нь тяжелая"}
+// ];
+// let heavyBox=boxs.find(box=>box.weight>10);
+// console.log(heavyBox);
+// let innerPlanets = ["Меркурий","Венера","Земля","Марс"];
+// let outerPlanets = ["Юпитер","Сатурн","Уран","Нептун"];
+// let planets = innerPlanets.concat(outerPlanets);
+// console.log(planets);
+// let words =["Я","люблю","JS"];
+// let sentons = words.join(" ");
+// console.log(sentons);
+// let toys =["Шар","Зыездочка","Коокольчик"];
+// let list = toys.join(", ");
+// console.log(list);
+// let toysList ="Шар, Зыездочка, Коокольчик";
+// let toyss = toysList.split(", ");
+// console.log(toyss);
+// let toyys =["Шар","Зыездочка","Коокольчик"];
+// toyys.forEach((toy,i) => {
+//     console.log(i,toy);
+// });
 var Toys = [{
-  name: "Большой красный шар в белый горошек",
-  count: 2,
+  name: "Большой красный шар, матовый",
+  count: 5,
   year: 2010,
   shape: "шар",
-  color: ["красный", "белый"],
-  favorite: false
+  color: ["крвсный"],
+  favorite: false,
+  image: "./img/5294.png"
 }, {
-  name: "прозрачный шар с красной ленточкой",
-  count: 2,
+  name: "вытянутый красно-белый шар",
+  count: 8,
   year: 2020,
-  shape: "шар",
-  color: ["прозрачный"],
-  favorite: true
+  shape: "вытянутый шар",
+  color: ["красный", "белый"],
+  favorite: true,
+  image: "./img/5295.png"
 }, {
-  name: "белстящая зеленая шишечка",
-  count: 2,
+  name: "желтый шар с цветком",
+  count: 12,
   year: 2010,
-  shape: "шишка",
-  color: ["заелный"],
-  favorite: false
+  shape: "шар",
+  color: ["желтый"],
+  favorite: false,
+  image: "./img/5296.png"
 }, {
-  name: "синий шар со снежинками",
-  count: 4,
+  name: "зеленый шар с золотыми цветами",
+  count: 6,
   year: 2019,
   shape: "шар",
-  color: ["синий", "белый"],
-  favorite: true
+  color: ["зеленый", "желтый"],
+  favorite: true,
+  image: "./img/5297.png"
 }, {
-  name: "золотой колокольчик с ленточкой",
-  count: 4,
+  name: "красная шишочка",
+  count: 5,
   year: 2017,
-  shape: "колокольчик",
-  color: ["золотой"],
-  favorite: false
+  shape: "шишка",
+  color: ["красный"],
+  favorite: false,
+  image: "./img/5301.png"
+}, {
+  name: "Большой красный шар, глянцевый",
+  count: 8,
+  year: 2010,
+  shape: "шар",
+  color: ["крвсный"],
+  favorite: false,
+  image: "./img/5300.png"
+}, {
+  name: "прозрачный шар",
+  count: 12,
+  year: 2010,
+  shape: "шар",
+  color: ["прозрачный"],
+  favorite: false,
+  image: "./img/5299.png"
+}, {
+  name: "Большой красный шар, блестящий",
+  count: 6,
+  year: 2010,
+  shape: "шар",
+  color: ["крвсный"],
+  favorite: false,
+  image: "./img/5298.png"
 }];
-Toys.forEach(function (toy) {
-  console.log(toy.name + " - форма: " + toy.shape + ", количество: " + toy.count);
+var toysGrid = document.querySelector(".toys-grid");
+Toys.forEach(function (toy, index) {
+  var toyBox = document.createElement("div");
+  var img = document.createElement("img");
+  img.src = toy.image;
+  img.classList.add("toy");
+  img.draggable = true;
+  img.dataset.index = index;
+  var countBox = document.createElement("div");
+  countBox.textContent = toy.count;
+  countBox.style.color = "white";
+  countBox.style.textAlign = "center";
+  countBox.style.fontSize = "14px";
 });
 var updaytToys = Toys.map(function (toy) {
   return _objectSpread({}, toy, {
@@ -116,16 +143,7 @@ var tree = {
     y: 300,
     type: "GreenBall"
   }]
-};
-var us = {
-  name: "Аня",
-  age: 16
-};
-Object.seal(us);
-us.name = "Вика";
-us.age = 17;
-delete us.name;
-console.log(us); // let  original ={a: 1, b: 2};
+}; // let  original ={a: 1, b: 2};
 // let copy =Object.assign({}, original);
 // copy.a =99;
 // console.log(original.a);
