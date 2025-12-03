@@ -115,35 +115,78 @@ Toys.forEach(function (toy, index) {
   countBox.style.color = "white";
   countBox.style.textAlign = "center";
   countBox.style.fontSize = "14px";
+  toyBox.appendChild(img);
+  toyBox.appendChild(countBox);
+  toysGrid.appendChild(toyBox);
+  img.addEventListener("dragstart", function (e) {
+    if (toy.count === 0) {
+      e.preventDefault();
+      return;
+    }
+
+    e.dataTransfer.setData("toy", index);
+  });
+});
+var treeArea = document.querySelector(".tree-area");
+treeArea.addEventListener("dragover", function (e) {
+  return e.preventDefault();
+});
+treeArea.addEventListener("drop", function (e) {
+  e.preventDefault();
+  var rect = treeArea.getBoundingClientRect();
+  var x = e.clientX - rect.left;
+  var y = e.clientY - rect.top;
+
+  if (e.dataTransfer.getData("toy" !== "")) {
+    var toyIndex = e.dataTransfer.getData("toy");
+    var toy = toys[toyIndex];
+
+    if (toy.count > 0) {
+      toy.count -= 1;
+      var xPos = x - 40;
+      var yPos = y - 40;
+      var img = document.createElement("img");
+      img.src = toy.image;
+      img.classList.add("toy-on-tree");
+      img.style.left = xPos + "px";
+      img.style.top = yPos + "px";
+      treeArea.appendChild(img);
+      currentTree.addToy(toy, xPos, yPos);
+      toysGrid.children[toyIndex].children[1].textContent = toy.count;
+      img.addEventListener("click", function () {
+        img.remove();
+        toy.count += 1;
+        toysGrid.children[toyIndex].children[1].textContent = toy.count;
+        currentTree.toys = currentTree.toys.filtre(function (t) {
+          return t.id !== toy.id;
+        });
+      });
+    }
+  }
 });
 var updaytToys = Toys.map(function (toy) {
   return _objectSpread({}, toy, {
     count: toy.count + 1
   });
-});
-console.log(updaytToys);
-var toyStore = {
-  list: ["RedBall", "BlueBall", "GreenBall"],
-  getComputedStyle: function getComputedStyle(index) {
-    return this.list[index];
-  }
-};
-var tree = {
-  type: "snowy",
-  backgraund: "livivn_room",
-  garland: "multin",
-  toys: [{
-    id: 1,
-    x: 120,
-    y: 240,
-    type: "RedBall"
-  }, {
-    id: 2,
-    x: 150,
-    y: 300,
-    type: "GreenBall"
-  }]
-}; // let  original ={a: 1, b: 2};
+}); // console.log(updaytToys);
+// let toyStore =
+// {
+//     list: ["RedBall","BlueBall","GreenBall"],
+//     getComputedStyle(index)
+//     {
+//         return this.list[index];
+//     }
+// }
+// let tree ={
+//     type:"snowy",
+//     backgraund:"livivn_room",
+//     garland:"multin",
+//     toys:[
+//         {id: 1, x: 120, y: 240, type:"RedBall"},
+//         {id: 2, x: 150, y: 300, type:"GreenBall"}
+//     ]
+// }
+// let  original ={a: 1, b: 2};
 // let copy =Object.assign({}, original);
 // copy.a =99;
 // console.log(original.a);
